@@ -1,0 +1,17 @@
+<html>
+<head>
+  
+    {% for menu in menu %}
+    {% if menu.parent == null %}
+    {{menu.name}}
+    {% else %}
+    <ul>
+      <li>{{ menu.name }}</li>
+    </ul>
+
+    {% endif %}
+
+    {% endfor %}
+  </ul>
+</head>
+</html>
