@@ -1,17 +1,22 @@
 <html>
-<head>
+<head></head>
+<body>
   
-    {% for menu in menu %}
-    {% if menu.parent == null %}
-    {{menu.name}}
-    {% else %}
-    <ul>
-      <li>{{ menu.name }}</li>
-    </ul>
-
-    {% endif %}
-
-    {% endfor %}
+{% for menu in menus %}
+  {% if not menu.parent %}
+  <h3>{{menu.name}} id {{menu.id}}</h3>
+  
+  {% elif menu.order == 1 %}
+  <ul class="level1">
+    <a href="#"><li>{{menu.name}}, id {{menu.id}}</a>
+      {% else %}
+      <ul class="level2">
+        <li>{{menu.name}}, order {{menu.order}}, id {{menu.id}}</li>
+      </ul>
+    </li>    
   </ul>
-</head>
+{% endif %}
+{% endfor %}
+
+</body>
 </html>

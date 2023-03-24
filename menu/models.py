@@ -3,12 +3,21 @@ from django.db import models
 
 class Menu(models.Model):
     name = models.CharField(max_length=100)
-    url_name = models.CharField(max_length=50, default=f'{name}')
+    url = models.CharField(max_length=50)
     parent = models.ForeignKey('self', blank=True, null=True, on_delete=models.CASCADE)
+    order = models.IntegerField(blank=True, verbose_name='Уровень вложенности')
 
     class Meta:
-        verbose_name = 'Меню'
+        verbose_name = 'Заголовок в Меню'
         verbose_name_plural = 'Заголовки'
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        self.url = self.name
+        if not self.parent:
+            self.order = 0
+        else:
+            self.order = self.parent.order + 1
+        super(Menu, self).save(*args, **kwargs)
