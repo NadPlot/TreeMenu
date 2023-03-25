@@ -1,12 +1,13 @@
 {% extends '_base.html' %}
+{% load draw_menu %}
 
 
 {% block title %}Menu{% endblock title %}
 
 {% block content %}
-<h3>Всего headers: {{ header|length }}</h3>
+<h3>Всего level's: {{ menu|length }}</h3>
 
-{% load draw_menu %}
-{% draw_menu header %}
+    {% draw_menu menu[0] %}
+
 
 {% endblock content %}

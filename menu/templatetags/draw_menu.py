@@ -5,5 +5,5 @@ register = template.Library()
 
 @register.inclusion_tag('display_draw_menu.html')
 def draw_menu(menu):
-    menus = menu.all()
+    menus = menu.children.all()
     return {'menus': menus}

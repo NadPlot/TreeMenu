@@ -1,22 +1,16 @@
 <html>
 <head></head>
 <body>
-  
+ {% load draw_menu %}
+<ul>  
 {% for menu in menus %}
-  {% if not menu.parent %}
-  <h3>{{menu.name}} id {{menu.id}}</h3>
-  
-  {% elif menu.order == 1 %}
-  <ul class="level1">
-    <a href="#"><li>{{menu.name}}, id {{menu.id}}</a>
-      {% else %}
-      <ul class="level2">
-        <li>{{menu.name}}, order {{menu.order}}, id {{menu.id}}</li>
-      </ul>
-    </li>    
-  </ul>
-{% endif %}
+ <li><a href="{{ menu.url }}">{{ menu }}</a></li>
+
+   {% if menu.children.count > 0 %}
+   {% draw_menu menu %}
+   {% endif %}
 {% endfor %}
+</ul>
 
 </body>
 </html>

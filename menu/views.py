@@ -1,8 +1,8 @@
-from django.views.generic import ListView
+from django.views.generic import DetailView
 from .models import Menu
 
 
-class MenuPageView(ListView):
+class MenuPageView(DetailView):
     model = Menu
     template_name = 'menu.html'
-    context_object_name = 'header'
+    context_object_name = 'menu'
