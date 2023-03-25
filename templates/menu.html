@@ -1,16 +1,15 @@
 {% extends '_base.html' %}
 {% load draw_menu %}
 
-
 {% block title %}Menu{% endblock title %}
 
 {% block content %}
-<h3>Всего level's: {{ menu|length }}</h3>
+<h3>Homepage with menu</h3>
+<hr>
 
-{{ menu }}
+{% draw_menu 'Second' %}
+<hr>
 
-{% draw_menu menu %}
-
-
+{% draw_menu 'Main' %}
 
 {% endblock content %}

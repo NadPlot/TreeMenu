@@ -1,7 +1,5 @@
-<html>
-<head></head>
-<body>
  {% load draw_menu %}
+
 <ul>  
 {% for menu in menus %}
  <li><a href="{{ menu.url }}">{{ menu }}</a></li>
@@ -11,6 +9,3 @@
    {% endif %}
 {% endfor %}
 </ul>
-
-</body>
-</html>

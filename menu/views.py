@@ -1,9 +1,5 @@
-from django.views.generic import ListView
-from .models import Menu
+from django.views.generic import TemplateView
 
 
-class MenuPageView(ListView):
-    model = Menu
-    queryset = Menu.objects.get(name='Main')
+class MenuPageView(TemplateView):
     template_name = 'menu.html'
-    context_object_name = 'menu'
