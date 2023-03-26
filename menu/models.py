@@ -15,7 +15,7 @@ class Menu(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.url = ''.join(self.name.split()).lower()
+        self.url = '-'.join(self.name.split()).lower()
         if not self.parent:
             self.order = 0
         else:

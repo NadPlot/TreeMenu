@@ -1,16 +1,16 @@
 {% extends '_base.html' %}
 {% load draw_menu %}
 
-{% block title %}Menu{% endblock title %}
+{% block title %}Homepage{% endblock title %}
+
+{% block menu %}
+<h3>Menu Second</h3>  <!-- названиe Меню -->
+{% draw_menu 'Second' %}  <!-- Меню на одной странице может быть несколько. Они определяются по названию -->
+<hr>
+<h3>Menu Main</h3>
+{% draw_menu 'Main' %}
+{% endblock menu %}
 
 {% block content %}
 <h3>Homepage with menu</h3>
-<hr>
-
-<!-- <h3>Menu name</h3> Можно добавить название меню-->
-{% draw_menu 'Second' %}  <!-- Меню на одной странице может быть несколько. Они определяются по названию -->
-<hr>
-
-{% draw_menu 'Main' %}
-
 {% endblock content %}
