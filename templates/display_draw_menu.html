@@ -2,7 +2,7 @@
 
 <ul>  
 {% for menu in menus %}
- <li><a href="{{ menu.url }}">{{ menu }}</a></li>
+ <li><a href="{{ menu.get_absolute_url }}">{{ menu }}</a></li>
 
    {% if menu.children.count > 0 %}
    {% draw_menu menu %}
