@@ -4,13 +4,17 @@
 {% block title %}Homepage{% endblock title %}
 
 {% block menu %}
+<!-- Меню на одной странице может быть несколько. Они определяются по названию -->
+
 <h3>Menu Second</h3>  <!-- названиe Меню -->
-{% draw_menu 'Second' %}  <!-- Меню на одной странице может быть несколько. Они определяются по названию -->
-<hr>
-<h3>Menu Main</h3>
+{% draw_menu 'Моё новое меню' %}
+
+<h3>Menu Main</h3>  <!-- названиe Меню -->
 {% draw_menu 'Main' %}
+
 {% endblock menu %}
 
 {% block content %}
 <h3>Homepage with menu</h3>
+<p>Some content of Homepage</p>
 {% endblock content %}

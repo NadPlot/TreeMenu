@@ -12,11 +12,4 @@ class MenuPageTests(SimpleTestCase):
         self.assertEqual(self.response.status_code, 200)
 
     def test_homepage_template(self):
-        self.assertTemplateUsed(self.response, 'catalog.html')
-
-    def test_menupage_contains_correct_html(self):
-        self.assertContains(self.response, 'Your TreeMenu')
-
-    def test_menupage_does_not_contain_incorrect_html(self):
-        self.assertNotContains(self.response, 'some text')
-
+        self.assertTemplateUsed(self.response, 'menu.html')

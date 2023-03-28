@@ -1,11 +1,23 @@
  {% load draw_menu %}
 
-<ul>  
-{% for menu in menus %}
- <li><a href="{{ menu.get_absolute_url }}">{{ menu }}</a></li>
+  <ul>
+  {% for header in menu %}
+    <li id="{{ header.url }}-{{ header.order }}"><a href="{{ header.get_absolute_url }}">{{ header }}</a></li>
 
-   {% if menu.children.count > 0 %}
-   {% draw_menu menu %}
-   {% endif %}
+    <script>
+      if ('{{ request.path }}' == '/menu/{{ header.url }}/') {
+        order = {{header.order}};
+      }
+
+      if ({{header.order}} > order + 1) {
+        level = document.getElementById('{{ header.url }}-{{ header.order }}');
+        level.setAttribute("hidden", true);
+        }
+    </script>
+
+     {% if header.children.count > 0 %}
+     {% draw_menu header %}
+     {% endif %}
+
 {% endfor %}
-</ul>
+  </ul>

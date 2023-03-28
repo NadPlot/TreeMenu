@@ -5,15 +5,18 @@
 {% block title %}{{ header }}{% endblock title %}
 
 {% block menu %}
-<!-- <h3>Menu name</h3> Можно добавить название меню-->
-{% draw_menu 'Second' %}  <!-- Меню на одной странице может быть несколько. Они определяются по названию -->
-<hr>
+
+<!-- Меню на одной странице может быть несколько. Они определяются по названию -->
+
+<h3><a href="{% url 'menu' %}">Menu Моё новое меню</a></h3>  <!-- названиe Меню -->
+{% draw_menu 'Моё новое меню' %}
+
+<h3><a href="{% url 'menu' %}">Menu Main</a></h3>  <!-- названиe Меню -->
 {% draw_menu 'Main' %}
 {% endblock menu %}
 
 {% block content %}
 <h3>{{ header }}</h3>
-<hr>
-<h4>Some content of the selected header</h4>
 
+<p>Some content of the {{ header }}</p>
 {% endblock content %}
