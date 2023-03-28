@@ -23,10 +23,11 @@ class Menu(models.Model):
         return reverse('header', args=[self.url])
 
     def save(self, *args, **kwargs):
-        url = '-'.join(transliterate(self.name.lower()).split())  # moe-menu-1
-        self.url = f'{self.parent.url}-{url}'
         if not self.parent:
+            self.url = '-'.join(transliterate(self.name.lower()).split())
             self.order = 0
         else:
+            url = '-'.join(transliterate(self.name.lower()).split())  # moe-menu-1
+            self.url = f'{self.parent.url}-{url}'
             self.order = self.parent.order + 1
         super().save(*args, **kwargs)
