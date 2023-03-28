@@ -33,12 +33,17 @@ class Migration(migrations.Migration):
             fields=[
                 (
                     'id', models.BigAutoField(
-                        auto_created=True, primary_key=True, serialize=False, verbose_name='ID'
+                        auto_created=True, primary_key=True, serialize=False, verbose_name='ID',
                     ),
                 ),
                 ('name', models.CharField(max_length=100)),
                 ('url', models.CharField(max_length=50, blank=True)),
-                ('parent', models.ForeignKey(blank=True, null=True, on_delete=models.deletion.CASCADE, related_name='children', to='menu.menu')),
+                (
+                    'parent', models.ForeignKey(
+                        blank=True, null=True,
+                        on_delete=models.deletion.CASCADE, related_name='children', to='menu.menu',
+                    ),
+                ),
                 ('order', models.IntegerField(blank=True)),
             ],
         ),
